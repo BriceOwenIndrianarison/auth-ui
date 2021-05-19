@@ -15,6 +15,7 @@
                 type="email"
                 class="full-width q-mb-md"
                 dense
+                v-model="email"
             />
             <q-input
                 rounded
@@ -23,6 +24,7 @@
                 type="password"
                 class="q-mb-md"
                 dense
+                v-model="password"
             />
           <div class="forgottenPass">
             <q-btn
@@ -35,16 +37,34 @@
         </form>
       </div>
       <div class="col-12 text-center">
-        <q-btn rounded color="primary">Connexion</q-btn>
+        <q-btn rounded color="primary" @click="submit">Connexion</q-btn>
       </div>
     </div>
     </q-page>
 </template>
 
 <script>
+import { ref } from 'vue'
+import { useStore } from 'vuex'
+
 export default {
     setup() {
-        
+        const store = useStore()
+        const email = ref('')
+        const password = ref('')
+        const isLoading = ref(false)
+
+        const submit = async () => {
+          isLoading.value = true
+          await store.dispatch('auth/login', { email: email.value, password: password.value })
+          isLoading.value = false
+        }
+
+        return {
+          email,
+          password,
+          submit
+        }
     },
 }
 </script>
