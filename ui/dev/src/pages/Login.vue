@@ -20,6 +20,7 @@
             v-model.trim="email"
             type="email"
             label="Email"
+            :rules="validations['email']"
             lazy-rules
             autofocus
             rounded
@@ -32,6 +33,7 @@
             v-model="password"
             :type="showPassword ? 'text' : 'password'"
             label="Mot de passe"
+            :rules="validations['password']"
             lazy-rules
             rounded
             outlined
@@ -78,6 +80,15 @@ export default {
         const password = ref('')
         const loading = ref(false)
         const showPassword = ref(false)
+        const validations = {
+          email: [
+            val => !!val || "L'adresse email doit être fourni",
+            val => isEmail || 'Email non valide'
+          ],
+          password: [
+            val => !!val || 'Le mot de passe doit être fourni'
+          ]
+        }
 
         const onSubmit = async () => {
             console.log('submit...')
@@ -102,6 +113,7 @@ export default {
             password,
             loading,
             showPassword,
+            validations,
             onSubmit
         }
     },
