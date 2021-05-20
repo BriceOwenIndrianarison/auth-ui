@@ -5,7 +5,7 @@
       style="width: 400px; padding:50px"
     >
       <q-card-section>
-        <div class="text-h6 text-center">
+        <div class="text-h6 text-center" style="font-family: 'Arima'; opacity: 0.7; font-size: 20px;">
           Vos identifiants d'accès
         </div>
       </q-card-section>
@@ -48,6 +48,9 @@
           </q-input>
           <br>
         </q-card-section>
+        <router-link to="/password/forgot">
+          <a class="forgottenPass">Forgot password</a>
+        </router-link>
         <q-card-actions>
           <q-btn
             rounded
@@ -60,10 +63,6 @@
           />
         </q-card-actions>
       </q-form>
-      <router-link to="/password/forgot">
-        <a>Forgot password</a>
-      </router-link>
-
     </q-card>
   </q-page>
 </template>

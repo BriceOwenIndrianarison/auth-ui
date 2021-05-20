@@ -14,7 +14,7 @@ const routes = [
     ].concat(children)
   },
   {
-    path: '/login',
+    path: '/auth/login',
     component: () => import('layouts/MyLayout.vue'),
     children: [
       { path: '', component: () => import('pages/Login.vue') }
