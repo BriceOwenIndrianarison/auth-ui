@@ -13,6 +13,13 @@ const routes = [
       { path: '', component: () => import('pages/Index.vue') }
     ].concat(children)
   },
+  {
+    path: '/login',
+    component: () => import('layouts/MyLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/Login.vue') }
+    ].concat(children)
+  },
 
   // Always leave this as last one,
   // but you can also remove it

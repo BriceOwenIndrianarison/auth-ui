@@ -7,7 +7,7 @@
         </p>
       </div>
       <div class="col-10 offset-1 q-pb-sm">
-        <form>  
+        <q-form @submit="submit">  
             <q-input
                 rounded
                 outlined
@@ -34,10 +34,10 @@
               label="Mot de passe oublié ?"
             />
           </div>
-        </form>
-      </div>
-      <div class="col-12 text-center">
-        <q-btn rounded color="primary" @click="submit">Connexion</q-btn>
+          <div class="col-12 text-center">
+            <q-btn type="submit" rounded color="primary">Connexion</q-btn>
+          </div>
+        </q-form>
       </div>
     </div>
     </q-page>
